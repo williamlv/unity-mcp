@@ -70,8 +70,8 @@ namespace MCPForUnity.Editor.Tools.Graphics
                         bounces = RenderSettings.reflectionBounces,
                         mode = RenderSettings.defaultReflectionMode.ToString(),
                         resolution = RenderSettings.defaultReflectionResolution,
-                        customCubemap = RenderSettings.customReflectionTexture != null
-                            ? AssetDatabase.GetAssetPath(RenderSettings.customReflectionTexture)
+                        customCubemap = RenderSettings.customReflection != null
+                            ? AssetDatabase.GetAssetPath(RenderSettings.customReflection)
                             : null
                     },
                     sun = sun != null
@@ -301,7 +301,7 @@ namespace MCPForUnity.Editor.Tools.Graphics
             {
                 var cubemap = AssetDatabase.LoadAssetAtPath<Texture>(cubemapPath);
                 if (cubemap != null)
-                    RenderSettings.customReflectionTexture = cubemap;
+                    RenderSettings.customReflection = cubemap;
                 else
                     return new ErrorResponse($"Cubemap not found at '{cubemapPath}'.");
             }
@@ -318,8 +318,8 @@ namespace MCPForUnity.Editor.Tools.Graphics
                     bounces = RenderSettings.reflectionBounces,
                     mode = RenderSettings.defaultReflectionMode.ToString(),
                     resolution = RenderSettings.defaultReflectionResolution,
-                    customCubemap = RenderSettings.customReflectionTexture != null
-                        ? AssetDatabase.GetAssetPath(RenderSettings.customReflectionTexture)
+                    customCubemap = RenderSettings.customReflection != null
+                        ? AssetDatabase.GetAssetPath(RenderSettings.customReflection)
                         : null
                 }
             };
